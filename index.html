@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resto</title>
+    <!--FONT-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inspiration&display=swap');
+        </style>
+        <style>
+             /* CAROUSEL */
+        div#carousel {
+            position: relative;
+            box-sizing: border-box;
+            overflow:hidden;
+            height: 100%;
+            width: 100%;
+        }
+        div#carousel>img{
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            object-fit: cover;
+            object-position: center;
+            transition: .3s;
+        }
+        div#carousel>img.active{
+            left: 0;
+        }
+        div#carousel>img.active ~ img{
+            left: 100%;
+        }
+
+        /* LANDING */
+        body section.landing{
+            position: relative;
+            height: calc(100vh - 50px);
+        }
+        body section.landing div#carousel.landing__carousel{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        body section.landing div.landing__texts{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+      
+
+</head>
+<body>
+    <header>
+        <img src="media/restaurant-png-hd-restaurant-week-new-orleans-1920.png" alt="" class="logo">
+        <img src="media/OIP (1).jpg" alt="" class="menu-hamburger" >
+        <nav>
+            <div class="navlinks">
+                <ul>
+                    <div class="menu-sortant">
+                        <div class="firstblock">
+                            <h1>Navigation</h1>
+                            <li><a href="">Accueil</a></li>
+                            <li><a href="">Nos Plats</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Le Chef </a></li>
+                        </div>
+                        <div class="secondblock">
+                            <li>        <img src="media/R (1).png" alt="" class="icone"><a href="">Réserver</a></li>
+
+                        </div>
+                        <div class="thirdblock">
+
+                        </div>
+                    </div>
+                </ul>    
+            </div>
+        </nav>
+    </header>
+    <div class="imagePrincipale">
+    
+      
+   <!--TEXT DE BIENVENUE-->
+    <h1 class="wlc">Welcome</h1>
+    <h1 class="toThe">to the </h1>
+    <h1 class="Restaurant">
+        restaurant</h1>
+        <!--PETIT TRAIT DE TRANSITION-->
+        <div class="premierTrait"></div>
+        <!--NOM DU RESTO -->
+        <h1 class="nomduresto">le Méditéranéen</h1>
+        <!--LE BOUTON -->
+          <div class="centre">
+            <button type="button"  class="button"><a href="#boutton">  ⇩</a>  </button>
+          </div>
+       
+       
+           
+</div>
+<!--PRESENTATION -->
+<div>
+<h1 class="présentation">PRESENTATION</h1>
+<div class="presentationtxt">
+    <div id="boutton"></div>
+ <p>Notre cuisine puise ses racines dans le midi, une région où les terroires </p>
+<p>extraordinaires du bassin méditerrannéen se rencontrent.Nous apportons une </p>
+<p>attention toute particulière à la fraicheur et la qualité des produits </p>
+</div>
+
+<div class="imgpresentation">
+    <img class="imgpre"  src="media/OIP (3).jpg" alt="">
+    <img class="imgpre2" src="media/R (1).jpg" alt="">
+</div>
+<div class="presentation2">
+<p> un large choix de pizzas traditionnelles ou insolites à la pâte croustillante </p>
+<p>des recettes de Pasta délicieuses aux saveurs du sud où l’huile d’olive, </p> 
+<p>l’ail, la tomate et le basilic se conjuguent à toutes les sauces . </p>
+
+</div>
+
+</div>
+<section class="landing">
+
+     
+    <!-- CAROUSEL -->
+    <div id="carousel" class="landing__carousel">
+       <img src="media/R (1).jpg" alt="plat 1">
+       <img src="media/plat2.jpg" alt="plat 2">
+       <img src="media/repas-plat-restaurant-viande-vin.jpg" alt="plat 3">
+   </div> 
+</section>
+</body>
+<script>
+    const menuHamburger = document.querySelector(".menu-hamburger")
+    const menusortant = document.querySelector(".menu-sortant")
+
+    menuHamburger.addEventListener('click',()=>{
+    menusortant.classList.toggle('mobile-menu')
+    })
+</script>
+  <!-- SCRIPTS -->
+  <script>
+    //CAROUSEL
+    let update = ()=>{
+        let firstElOrActive = document.querySelector("div#carousel>img.active") || document.querySelector("div#carousel>img");
+        firstElOrActive.classList.remove("active");
+        (firstElOrActive.nextElementSibling || firstElOrActive.parentElement.children[0]).classList.add("active");
+    };
+    update();
+    setInterval(update, 2000)
+</script>
+</html>
